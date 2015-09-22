@@ -890,7 +890,7 @@ $(function () {
     }
     if (conf.series.pie) {
         conf.series.pie.label.formatter = function(label, series){
-            return '<div class=pielabel>'+Math.round(series.percent)+'%%</div>';
+            return '<div class=pielabel>'+series.percent.toFixed(2)+'%%</div>';
         };
     }
     $.plot($("#%(id)s"), %(data)s, conf);
