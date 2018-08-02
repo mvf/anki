@@ -577,7 +577,6 @@ class Browser(QMainWindow):
 
         # grab search text and normalize
         txt = self.form.searchEdit.lineEdit().text()
-        txt = unicodedata.normalize("NFC", txt)
 
         # update history
         sh = self.mw.pm.profile['searchHistory']
