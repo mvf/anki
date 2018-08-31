@@ -251,26 +251,10 @@ class AnkiWebView(QWebEngineView):
 button { font-size: 13px; -webkit-appearance: none; background: #fff; border: 1px solid #ccc;
 border-radius:5px; font-family: Helvetica }"""
         else:
+            widgetspec = ""
             family = self.font().family()
-            color_hl_txt = palette.color(QPalette.HighlightedText).name()
-            color_btn = palette.color(QPalette.Button).name()
-            fontspec = 'font-size:14px;font-family:"%s";'% family
-            widgetspec = """
-/* Buttons */
-button{ font-size:14px; -webkit-appearance:none; outline:0;
-        background-color: %(color_btn)s; border:1px solid rgba(0,0,0,.2);
-        border-radius:2px; height:24px; font-family:"%(family)s"; }
-button:focus{ border-color: %(color_hl)s }
-button:hover{ background-color:#fff }
-button:active, button:active:hover { background-color: %(color_hl)s; color: %(color_hl_txt)s;}
-/* Input field focus outline */
-textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus,
-div[contenteditable="true"]:focus {   
-    outline: 0 none;
-    border-color: %(color_hl)s;
-}""" % {"family": family, "color_btn": color_btn,
-        "color_hl": color_hl, "color_hl_txt": color_hl_txt}
-        
+            fontspec = 'font-size:14px;font-family:"%s";'%\
+                family
         csstxt = "\n".join([self.bundledCSS("webview.css")]+
                            [self.bundledCSS(fname) for fname in css])
         jstxt = "\n".join([self.bundledScript("webview.js")]+
