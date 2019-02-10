@@ -290,6 +290,7 @@ class Editor:
 
     def mungeHTML(self, txt):
         txt = re.sub(r"<br>$", "", txt)
+        txt = re.sub(r"&nbsp;", " ", txt)
         return txt
 
     # Setting/unsetting the current note
