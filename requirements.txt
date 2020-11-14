@@ -1,10 +1,12 @@
+PyQt5; sys_platform == "win32" or sys_platform == "darwin"
+PyQtWebEngine; sys_platform == "win32" or sys_platform == "darwin"
 beautifulsoup4
-send2trash
-pyaudio
-requests
 decorator
-markdown
-jsonschema
-psutil; sys_platform == "win32"
 distro; sys_platform != "win32" and sys_platform != "darwin"
+jsonschema
+markdown
+psutil; sys_platform == "win32"
 pyobjc; sys_platform == "darwin"
+pywin32; sys_platform == "win32"
+requests
+send2trash
