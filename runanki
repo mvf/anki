@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+import sys
+
+if sys.platform == 'darwin':
+    from Foundation import NSBundle
+    bundle = NSBundle.mainBundle()
+    if bundle:
+        info = bundle.localizedInfoDictionary() or bundle.infoDictionary()
+        if info and info['CFBundleName'] == 'Python':
+            info['CFBundleName'] = 'Anki'
 
 import aqt
 aqt.run()
